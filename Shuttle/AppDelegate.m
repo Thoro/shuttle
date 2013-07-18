@@ -175,7 +175,7 @@
         NSDictionary* data = [servers objectForKey:key];
         
         // Ignore entrys that contain wildcard characters
-        NSString* host= [data valueForKey:@"Host"];
+        NSString* host = [data valueForKey:@"Host"];
         if ([host rangeOfString:@"*"].length != 0)
             continue;
         
@@ -299,7 +299,7 @@
                                     @"  tell the current terminal \n"
                                     @"      if isRunning then \n"
                                     @"          set newSession to (launch session \"Default Session\") \n"
-                                    @"          tell newSession \n"
+                                    @"          tell the last session \n"
                                     @"              write text \"clear\" \n"
                                     @"              write text \"%1$@\" \n"
                                     @"          end tell \n"
