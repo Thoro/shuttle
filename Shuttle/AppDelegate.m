@@ -277,6 +277,8 @@
     //NSLog(@"sender: %@", sender);
     //NSLog(@"Command: %@",[sender representedObject]);
 
+    NSString *escapedObject = [[sender representedObject] stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    
     // Check if Url
     NSURL* url = [NSURL URLWithString:[sender representedObject]];
     if(url)
@@ -310,7 +312,7 @@
                                     @"      end if \n"
                                     @"  end tell \n"
                                     @"end tell \n"
-                                    , [sender representedObject]]];
+                                    , escapedObject]];
         [iTerm2 executeAndReturnError:nil];
     } else {
         NSAppleScript* terminalapp = [[NSAppleScript alloc] initWithSource:
@@ -334,7 +336,7 @@
                                        @"      activate \n"
                                        @"  end if \n"
                                        @"end tell \n"
-                                       , [sender representedObject]]];
+                                       , escapedObject]];
         [terminalapp executeAndReturnError:nil];
     }
 }
