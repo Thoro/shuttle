@@ -11,14 +11,14 @@
     // The path for the configuration file (by default: ~/.shuttle.json)
     shuttleConfigFile = [NSHomeDirectory() stringByAppendingPathComponent:@".shuttle.json"];
     
-    // Load the menu content
-    // [self loadMenu];
-    
     // if the config file does not exist, create a default one
     if ( ![[NSFileManager defaultManager] fileExistsAtPath:shuttleConfigFile] ) {
         NSString *cgFileInResource = [[NSBundle mainBundle] pathForResource:@"shuttle.default" ofType:@"json"];
         [[NSFileManager defaultManager] copyItemAtPath:cgFileInResource toPath:shuttleConfigFile error:nil];
     }
+
+    // Load the menu content
+    // [self loadMenu];
     
     // Create the status bar item
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:25.0];
@@ -173,12 +173,16 @@
     // First add all the system serves we know
     for (id key in servers) {
         NSDictionary* data = [servers objectForKey:key];
-        
-        // Ignore entrys that contain wildcard characters
         NSString* host = [data valueForKey:@"Host"];
+
+        // Ignore entries that contain wildcard characters
         if ([host rangeOfString:@"*"].length != 0)
             continue;
         
+        // Ignore entries that start with `.`
+        if ([host hasPrefix:@"."])
+            continue;
+
         // Parse hosts...
         NSRange ns = [host rangeOfString:@"/"];
         if (ns.length == 0) {
@@ -276,7 +280,7 @@
 - (void) openHost:(NSMenuItem *) sender {
     //NSLog(@"sender: %@", sender);
     //NSLog(@"Command: %@",[sender representedObject]);
-
+    
     NSString *escapedObject = [[sender representedObject] stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     
     // Check if Url
