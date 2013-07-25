@@ -312,10 +312,10 @@
 - (void) openHost:(NSMenuItem *) sender {
     SHMenuItem *item = sender.representedObject;
     
-    NSString *escapedObject = [[sender representedObject] stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *escapedObject = [item.command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     
     // Check if Url
-    NSURL* url = [NSURL URLWithString:[sender representedObject]];
+    NSURL* url = [NSURL URLWithString:item.command];
     if(url)
     {
         [[NSWorkspace sharedWorkspace] openURL:url];
@@ -347,7 +347,7 @@
                                     @"      end if \n"
                                     @"  end tell \n"
                                     @"end tell \n"
-                                    , item.command]];
+                                    , escapedObject]];
         [iTerm2 executeAndReturnError:nil];
     } else {
         NSAppleScript* terminalapp = [[NSAppleScript alloc] initWithSource:
@@ -371,7 +371,7 @@
                                        @"      activate \n"
                                        @"  end if \n"
                                        @"end tell \n"
-                                       , item.command]];
+                                       , escapedObject]];
         [terminalapp executeAndReturnError:nil];
     }
 }
