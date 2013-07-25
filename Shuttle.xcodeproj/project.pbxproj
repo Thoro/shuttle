@@ -20,6 +20,7 @@
 		C149EC1115D5214600B1F558 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C149EC1015D5214600B1F558 /* AppDelegate.m */; };
 		C149EC1415D5214600B1F558 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C149EC1215D5214600B1F558 /* MainMenu.xib */; };
 		C159DC2815D5DE8000F5DE24 /* shuttle.icns in Resources */ = {isa = PBXBuildFile; fileRef = C159DC2715D5DE7F00F5DE24 /* shuttle.icns */; };
+		E94EDE14179EB7FE0032EA59 /* shuttle.sdef in Resources */ = {isa = PBXBuildFile; fileRef = E94EDE13179EB7A90032EA59 /* shuttle.sdef */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C149EC1015D5214600B1F558 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C149EC1315D5214600B1F558 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C159DC2715D5DE7F00F5DE24 /* shuttle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = shuttle.icns; path = ../shuttle.icns; sourceTree = "<group>"; };
+		E94EDE13179EB7A90032EA59 /* shuttle.sdef */ = {isa = PBXFileReference; lastKnownFileType = text; path = shuttle.sdef; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		C149EC0315D5214600B1F558 /* Shuttle */ = {
 			isa = PBXGroup;
 			children = (
+				E94EDE15179EB89C0032EA59 /* Scripting */,
 				7E74A7C51789CE2F0079E0D2 /* shuttle.default.json */,
 				7E72D21E178003ED00A6389C /* Shuttle.entitlements */,
 				C159DC2715D5DE7F00F5DE24 /* shuttle.icns */,
@@ -119,6 +122,7 @@
 				C149EC1215D5214600B1F558 /* MainMenu.xib */,
 				0ADB3B10178EF8E2004E9BB9 /* Images */,
 				C149EC0415D5214600B1F558 /* Supporting Files */,
+				E94EDE13179EB7A90032EA59 /* shuttle.sdef */,
 			);
 			path = Shuttle;
 			sourceTree = "<group>";
@@ -133,6 +137,13 @@
 				C149EC0C15D5214600B1F558 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E94EDE15179EB89C0032EA59 /* Scripting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Scripting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94EDE14179EB7FE0032EA59 /* shuttle.sdef in Resources */,
 				0ADB3B0D178EF8DB004E9BB9 /* StatusIcon.png in Resources */,
 				0ADB3B0C178EF8DB004E9BB9 /* StatusIconAlt.png in Resources */,
 				C149EC0815D5214600B1F558 /* InfoPlist.strings in Resources */,

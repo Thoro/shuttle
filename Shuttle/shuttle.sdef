@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Dictionary">
+	<suite name="Shuttle Suit" code="ShSu" description="Classes and commands for Shuttle">
+		<class name="SHCommand" description="Represents each menu-item in the menu" plural="commands" inherits="NSObject">
+			<element type="element"/>
+		</class>
+		<class-extension description="The application&apos;s top-level scripting object" extends="application"/>
+	</suite>
+</dictionary>
